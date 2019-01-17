@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class EndPoints {
 
     private NewsFactory newsFactory = new NewsFactory();
-
     //al-jazeera-english  cnn  fox-news  abc-news  google-news-ru  independent  rt
     @GetMapping("/topnews/{source}")
     public String getAllTopNews(@PathVariable String source)  {
@@ -26,7 +25,7 @@ public class EndPoints {
     @GetMapping("/topnews")
     public String getAllNews() {
         try {
-            return String.valueOf(newsFactory.getNews("cnn")); // TODO delete the string, Just for practice
+            return String.valueOf(newsFactory.getNews("cnn")); // TODO delete the string. Only for test
         } catch (Exception e) {
             e.printStackTrace();
             return "The is no data";
