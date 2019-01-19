@@ -11,7 +11,7 @@ public class EndPoints {
     //al-jazeera-english  cnn  fox-news  abc-news  google-news-ru  independent  rt
     @GetMapping("/topnews/{source}")
     public String getNewsBySource(@PathVariable String source, @RequestParam(name = "type", required = false) String type)  {
-        type = type == null ? "top" : "";
+        type = type == null ? "" : type;
         try {
             return String.valueOf(newsFactory.getNews(source, type));
         } catch (Exception e) {
